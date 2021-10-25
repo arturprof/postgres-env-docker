@@ -1,0 +1,18 @@
+version: "3.6"
+services:
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: mypass
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 8180:80
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
