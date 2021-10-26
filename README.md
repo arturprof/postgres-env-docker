@@ -19,3 +19,9 @@ docker-compose down
 ```bash
 docker-compose down -v
 ```
+
+# Ver o log das maquinas
+
+```bash
+docker-compose logs -f
+```
