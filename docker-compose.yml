@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_PASSWORD: mypass
     volumes:
-      - ./storage:/var/lib/pgadmin/storage/
+      - pgdata:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
@@ -15,6 +15,10 @@ services:
       - 8180:80
     volumes:
       - ./servers.json:/pgadmin4/servers.json
+      - ./storage:/var/lib/pgadmin/storage/
     environment:
       PGADMIN_DEFAULT_PASSWORD: admin
       PGADMIN_DEFAULT_EMAIL: admin@local.com
+
+volumes:
+  pgdata:
